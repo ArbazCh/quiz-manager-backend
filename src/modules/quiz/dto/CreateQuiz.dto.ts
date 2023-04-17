@@ -5,9 +5,8 @@ export class CreateQuizDto {
     @Length(3, 255)
     title: string;
 
-    // @IsNotEmpty()
-    // @Length(3)
+    @IsNotEmpty()
+    @Length(3)
     description: string;
 
 }
-//nn
