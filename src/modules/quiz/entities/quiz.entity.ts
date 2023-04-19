@@ -1,8 +1,9 @@
 
-import { Column, Entity, PrimaryGeneratedColumn, } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, BaseEntity } from 'typeorm';
+import { Question } from './question.entity';
 
 @Entity('quizes')
-export class Quiz {
+export class Quiz extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -18,4 +19,7 @@ export class Quiz {
     })
     isActive: boolean;
     default: 1
+
+    @OneToMany(() => Question, (question) => question.quiz)
+    questions: Question[]
 }
